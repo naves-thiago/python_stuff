@@ -80,7 +80,7 @@ def _create_titles(schema):
 	return ret
 
 def _find_lengths(data, schema, titles):
-	'''Returns a list of the lengths of the longest string in each column (including the title '''
+	'''Returns a list of the lengths of the longest string in each column (including the title)'''
 	ret = []
 	for k in titles:
 		ret.append(len(k))
