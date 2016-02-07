@@ -28,10 +28,10 @@ def print_table(data, schema, titles = None):
 		raise TypeError("data must be a list or a tuple")
 
 	if type(schema) not in (list, tuple):
-		raise TypeError("data must be a list or a tuple")
+		raise TypeError("schema must be a list or a tuple")
 
 	if type(titles) not in (list, tuple, None):
-		raise TypeError("data must be a list or a tuple or None")
+		raise TypeError("titles must be a list or a tuple or None")
 
 	# Use keys as titles if needed
 	if titles == None:
