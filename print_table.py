@@ -4,7 +4,7 @@ write = sys.stdout.write
 def print_table(data, schema, titles = None):
 	'''Prints a list of dictionaries as a table
 	params: data: The list / tuple of dictionaries / lists / tuples (of dictionaries / lists / tuples ...)
-	        schema: A list or an set that describes how to iterate in d
+	        schema: A list or a set that describes how to iterate in d
 	        titles: Column titles to use instead of the keys
 
 	Schema format:
@@ -20,7 +20,7 @@ def print_table(data, schema, titles = None):
 	| ....                                                                                                      |
 	|-------------|--------------|----------------------|----------------------|--------------------------------|
 
-	if titles is provided, it's values will be used as column titles instead of the keys.
+	if titles list / tuple is provided, it's values will be used as column titles instead of the keys.
 	'''
 
 	# Verify param types
