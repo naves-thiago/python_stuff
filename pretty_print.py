@@ -5,7 +5,7 @@ write = sys.stdout.write
 def pretty_print(val, sortDict=True, indent="|    ", encoding="utf-8"):
 	_pretty_print(val, sortDict, indent, 0, "", False, encoding)
 
-def _pretty_print(val, sortDict=True, indent="|  ", indentLevel=0, indentOffset=0, indentBrackets=False, encoding="utf-8"):
+def _pretty_print(val, sortDict, indent, indentLevel, indentOffset, indentBrackets, encoding):
 	indentStr = _indent_str(indent, indentLevel) + indentOffset
 
 
