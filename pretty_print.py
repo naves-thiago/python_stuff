@@ -28,7 +28,6 @@ def _pretty_print(val, sortDict, indent, indentLevel, indentOffset, indentBracke
 				has_container = True
 				break
 
-		line = ""
 		if indentBrackets:
 			line = indentStr + _prefix
 		else:
@@ -49,13 +48,21 @@ def _pretty_print(val, sortDict, indent, indentLevel, indentOffset, indentBracke
 			# All values in the same line
 			for i in range(len(val)-1):
 				write(str(val[i]) + ', ')
-			write(str(val[len(val)-1]))
+			if len(val) > 0:
+				write(str(val[len(val)-1]))
 
 			print(_sufix)
 
 		return
 
 	# Dicts
+	if len(val) == 0:
+		if indentBrackets:
+			print(indentStr + '{}')
+		else:
+			print('{}')
+		return
+
 	keys = val.keys()
 	if sortDict:
 		keys.sort()
@@ -67,7 +74,10 @@ def _pretty_print(val, sortDict, indent, indentLevel, indentOffset, indentBracke
 	else:
 		print('{')
 
-	value_offset = indentOffset + indent + (len(keys_str[0]) + 2) * " "
+	value_offset = indentOffset + indent
+	if len(keys_str) > 0:
+		value_offset += (len(keys_str[0]) + 2) * " "
+
 	for i in range(len(keys)):
 		write(indentStr + indent + keys_str[i] + ": ")
 
@@ -90,7 +100,9 @@ def match_lengths(v, encoding="utf-8"):
 	
 	return ret
 
-pretty_print({"aaaaaaaaaaa":1,"bbbbbb":{"ccccccccccc":3,"d":[1,[2,3,[4,5]]]}})
+pretty_print({1:2, 3:{}, 4:[], 5:[{}], 6:{7:[]}})
+#pretty_print([1,2,[]])
+#pretty_print({"aaaaaaaaaaa":1,"bbbbbb":{"ccccccccccc":3,"d":[1,[2,3,[4,5]]]}})
 #pretty_print({"asd":[1,2,3,[4]], 1:2, "bbbbbbbb":{1:2, 2:[3]}})
 #pretty_print([1,2,[3,4,[5]]])
 #pretty_print({"á" : 1, "b" : "c", "c" : [ 1,2,3,[4,5,[6]], {"aaa":"bbb", 1:3}]})
