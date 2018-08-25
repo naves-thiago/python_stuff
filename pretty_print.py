@@ -73,7 +73,7 @@ def _pretty_print(val, sortDict=True, indent="|  ", indentLevel=0, indentOffset=
 		write(indentStr + indent + keys_str[i] + ": ")
 
 		if type(val[keys[i]]) in (dict, tuple, list):
-			_pretty_print(val[keys[i]], sortDict, indent, indentLevel + 1, value_offset, False)
+			_pretty_print(val[keys[i]], sortDict, indent, indentLevel + 1, value_offset, False, encoding)
 		else:
 			print(val[keys[i]])
 
