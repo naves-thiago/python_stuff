@@ -45,7 +45,7 @@ def print_table(data, schema, titles = None):
 	write("|\n")
 
 	# Print column names
-	for c in xrange(len(lens)):
+	for c in range(len(lens)):
 		write(('|  {:<%d}  ' % lens[c]).format(titles[c]))
 	write("|\n")
 
@@ -56,7 +56,7 @@ def print_table(data, schema, titles = None):
 
 	# Print data
 	for line in data:
-		for c in xrange(len(lens)):
+		for c in range(len(lens)):
 			write(('|  {:<%d}  ' % lens[c]).format(_col_value(line, schema, c)))
 		write("|\n")
 
@@ -86,7 +86,7 @@ def _find_lengths(data, schema, titles):
 		ret.append(len(k))
 
 	for line in data:
-		for col in xrange(len(schema)):
+		for col in range(len(schema)):
 			l = len(_col_value(line, schema, col))
 			if l > ret[col]:
 				ret[col] = l
