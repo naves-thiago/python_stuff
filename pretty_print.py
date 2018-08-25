@@ -3,6 +3,12 @@ import sys
 write = sys.stdout.write
 
 def pretty_print(val, sortDict=True, indent="|    ", encoding="utf-8"):
+	''' Print nested containers in a hierarchical form.
+	    Params: val - value to print
+	            sortDict - Print dicts sorted by key. Defaults to True
+	            indent - String to reresenting each indentation step. Defaults to "|    "
+	            encoding - Character encoding. Defaults to utf-8
+	'''
 	_pretty_print(val, sortDict, indent, 0, "", False, encoding)
 
 def _pretty_print(val, sortDict, indent, indentLevel, indentOffset, indentBrackets, encoding):
@@ -100,7 +106,7 @@ def match_lengths(v, encoding="utf-8"):
 	
 	return ret
 
-pretty_print({1:2, 3:{}, 4:[], 5:[{}], 6:{7:[]}})
+#pretty_print({1:2, 3:{}, 4:[], 5:[{}], 6:{7:[]}})
 #pretty_print([1,2,[]])
 #pretty_print({"aaaaaaaaaaa":1,"bbbbbb":{"ccccccccccc":3,"d":[1,[2,3,[4,5]]]}})
 #pretty_print({"asd":[1,2,3,[4]], 1:2, "bbbbbbbb":{1:2, 2:[3]}})
